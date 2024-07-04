@@ -9,10 +9,10 @@ import {
 import { AuthService } from '../../services/auth/auth.service';
 import { LocalAuthGuard } from '../../guards/local-auth.guard';
 import { Public } from '../../decorators/public.decorator';
-import { LoginDto } from '../../../domain/auth/dtos/login.dto';
 import { RegisterDto } from '../../../domain/auth/dtos/register.dto';
 import { RecoverDto } from '../../../domain/auth/dtos/recover.dto';
 import { ResetPasswordDto } from '../../../domain/auth/dtos/reset-password.dto';
+import { LoginDto } from '../../../domain/auth/dtos/login.dto';
 
 @Controller('api/auth')
 export class AuthController {

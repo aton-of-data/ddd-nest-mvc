@@ -1,8 +1,6 @@
-# NestJS Auth MVC
-
 ## Descrição
 
-Projeto MVP utilizando NestJS com autenticação via JWT. Inclui páginas de cadastro, login, recuperação de senha e home.
+Este projeto MVC é uma aplicação NestJS que implementa autenticação e gerenciamento de usuários, seguindo os princípios de SOLID e Domain-Driven Design (DDD).
 
 ## Configuração
 
@@ -10,28 +8,36 @@ Projeto MVP utilizando NestJS com autenticação via JWT. Inclui páginas de cad
 
    ```bash
    git clone <repo-url>
-   cd nestjs-auth-mvc
+   cd <repo-name>
    ```
 
 2. Instale as dependências:
 
    ```bash
-   npm install
+   yarn
    ```
 
 3. Configure o MongoDB:
-   Certifique-se de que o MongoDB está em execução e a conexão está configurada corretamente no `src/app.module.ts`.
+   Certifique-se de que as envs estão devidamente declaradas, use o arquivo env.exemple de referência
 
 4. Inicie o servidor:
 
    ```bash
-   npm run start
+   yarn start
    ```
 
 5. Acesse o projeto em `http://localhost:3000`.
 
 ## Endpoints
+- POST /api/auth/register - Registra um novo usuário.
+- POST /api/auth/login - Autentica um usuário.
+- POST /api/auth/recover - Envia um email para recuperação de senha.
+- POST /api/auth/reset-password - Reseta a senha do usuário.
+- GET /api/users - Lista todos os usuários cadastrados.
+- POST /api/users - Cria um novo usuário.
 
-- `POST /api/auth/register` - Registra um novo usuário.
-- `POST /api/auth/login` - Autentica um usuário.
-- `GET /api/users` - Lista todos os usuários cadastrados.
+## Rotas do Frontend
+- /login - Realiza o login de um usuário e redireciona para a página de perfil se o login for bem-sucedido.
+- /register - Registra um novo usuário e redireciona para a página de login após o registro bem-sucedido.
+- /recover - Envia um email de recuperação de senha para o usuário.
+- /reset-password - Reseta a senha do usuário com base no token enviado por email.

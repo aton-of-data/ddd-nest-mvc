@@ -81,7 +81,9 @@ export class AuthService {
         throw new Error('Usuário não encontrado');
       }
 
-      user.password = newPassword;
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+      user.password = hashedPassword;
       await this.usersService.update(user.id, user);
 
       return true;
